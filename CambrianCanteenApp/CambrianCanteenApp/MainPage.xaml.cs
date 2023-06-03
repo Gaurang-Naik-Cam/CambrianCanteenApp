@@ -11,14 +11,17 @@ public partial class MainPage : ContentPage
 
 	private void OnCounterClicked(object sender, EventArgs e)
 	{
-		count++;
+		if(count <21)
+			count++;
 
 		if (count == 1)
 			CounterBtn.Text = $"Clicked {count} time";
+		else if (count == 20)
+			CounterBtn.Text = $"You have reached the max count";
 		else
-			CounterBtn.Text = $"Clicked {count} times";
+            CounterBtn.Text = $"Clicked {count} times";
 
-		SemanticScreenReader.Announce(CounterBtn.Text);
+        SemanticScreenReader.Announce(CounterBtn.Text);
 	}
 }
 
