@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\CambrianCanteenApp",
+    "\\CambrianCanteenApp\\CambrianCanteenApp"
   ],
+  "SelectedNode": "\\CambrianCanteenApp\\CambrianCanteenApp.sln",
   "PreviewInSolutionExplorer": false
 }
