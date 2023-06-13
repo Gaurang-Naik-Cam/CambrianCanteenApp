@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace CambrianCanteenApp.Models
 {
-
-    public class FoodCategory
+    public class MenuCard
     {
-        public int ID { get; set; }
-        public string CategoryName { get; set; }
+        List<FoodItems> MenuItems { get; set; }
     }
 }

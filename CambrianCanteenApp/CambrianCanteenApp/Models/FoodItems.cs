@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace CambrianCanteenApp.Models
 {
-    internal class FoodItems
+    public class FoodItems
     {
-        internal int ID { get; set; }
-        internal string ItemName { get; set; }
+        public int ID { get; set; }
+        public string ItemName { get; set; }
+        public FoodCategory FoodCategory { get; set; }
+        public double Price { get; set; }
+        DayOfWeek Day { get; set; }
 
     }
 }
