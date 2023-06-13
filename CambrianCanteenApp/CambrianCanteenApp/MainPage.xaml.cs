@@ -11,7 +11,7 @@ public partial class MainPage : ContentPage
 
 	private void OnCounterClicked(object sender, EventArgs e)
 	{
-		if(count <21)
+		if(count <= 20)
 			count++;
 
 		if (count == 1)

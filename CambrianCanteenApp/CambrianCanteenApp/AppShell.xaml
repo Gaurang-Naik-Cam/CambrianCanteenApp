@@ -7,8 +7,35 @@
     Shell.FlyoutBehavior="Disabled">
 
     <ShellContent
-        Title="Home"
+        Title="Login"
+        ContentTemplate="{DataTemplate local:LoginPage}"
+        Route="LoginPage" />
+    
+    <ShellContent
+        Title="Home"    
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
+    <ShellContent
+        Title="Settings"    
+        ContentTemplate="{DataTemplate local:SettingsPage}"
+        Route="SettingsPage" />
+
+    <TabBar>
+        <Tab Title="Home" Icon="house_door_fill.svg">
+            <ShellContent
+                Icon="house_door_fill.svg"
+                Title="Home"
+                ContentTemplate="{DataTemplate local:MainPage}"
+                Route="home" />
+
+        </Tab>
+        <Tab Title="Settings" Icon="gear_fill.svg">
+            <ShellContent
+                Icon="house_door_fill.svg"
+                Title="Settings"
+                ContentTemplate="{DataTemplate local:SettingsPage}"
+                Route="settings" />
+        </Tab>
+    </TabBar>
 </Shell>
