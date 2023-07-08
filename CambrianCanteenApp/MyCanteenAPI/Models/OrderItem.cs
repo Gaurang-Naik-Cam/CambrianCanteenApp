@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace MyCanteenAPI.Models;
+
+public partial class OrderItem
+{
+    public int Id { get; set; }
+
+    public int OrderId { get; set; }
+
+    public int FoodItemId { get; set; }
+
+    public virtual FoodItem FoodItem { get; set; } = null!;
+
+    public virtual Order Order { get; set; } = null!;
+}
