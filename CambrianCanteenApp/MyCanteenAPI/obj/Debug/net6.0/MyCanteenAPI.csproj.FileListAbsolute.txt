@@ -80,3 +80,7 @@ C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\MyCanteenAPI\b
 C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\MyCanteenAPI\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\MyCanteenAPI\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\MyCanteenAPI\obj\Debug\net6.0\MyCanteenAPI.csproj.CopyComplete
+C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\MyCanteenAPI\bin\Debug\net6.0\System.Net.Http.Formatting.dll
+C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\MyCanteenAPI\bin\Debug\net6.0\System.Web.Http.dll
+C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\MyCanteenAPI\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\MyCanteenAPI\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

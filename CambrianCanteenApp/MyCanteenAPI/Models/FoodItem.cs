@@ -15,6 +15,8 @@ public partial class FoodItem
 
     public string? DayOfTheWeek { get; set; }
 
+    public string? ImageUrl { get; set; }
+
     public virtual FoodCategory? FoodCategory { get; set; }
 
     public virtual ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();

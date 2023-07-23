@@ -13,6 +13,8 @@ public partial class Cart
 
     public DateTime? AddedOn { get; set; }
 
+    public int Qty { get; set; }
+
     public virtual FoodItem FoodItem { get; set; } = null!;
 
     public virtual Student Student { get; set; } = null!;
