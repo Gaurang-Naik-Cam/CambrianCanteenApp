@@ -21,6 +21,8 @@ public partial class Student
 
     public string Password { get; set; } = null!;
 
+    public virtual ICollection<Cart> Carts { get; set; } = new List<Cart>();
+
     public virtual ProgramName? CurrentProgram { get; set; }
 
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();

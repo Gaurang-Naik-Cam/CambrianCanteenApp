@@ -1,0 +1,12 @@
+C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CanteenApp.Common.Lib\bin\Debug\net6.0\CanteenApp.Common.Lib.deps.json
+C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CanteenApp.Common.Lib\bin\Debug\net6.0\CanteenApp.Common.Lib.dll
+C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CanteenApp.Common.Lib\bin\Debug\net6.0\CanteenApp.Common.Lib.pdb
+C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CanteenApp.Common.Lib\obj\Debug\net6.0\CanteenApp.Common.Lib.csproj.AssemblyReference.cache
+C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CanteenApp.Common.Lib\obj\Debug\net6.0\CanteenApp.Common.Lib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CanteenApp.Common.Lib\obj\Debug\net6.0\CanteenApp.Common.Lib.AssemblyInfoInputs.cache
+C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CanteenApp.Common.Lib\obj\Debug\net6.0\CanteenApp.Common.Lib.AssemblyInfo.cs
+C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CanteenApp.Common.Lib\obj\Debug\net6.0\CanteenApp.Common.Lib.csproj.CoreCompileInputs.cache
+C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CanteenApp.Common.Lib\obj\Debug\net6.0\CanteenApp.Common.Lib.dll
+C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CanteenApp.Common.Lib\obj\Debug\net6.0\refint\CanteenApp.Common.Lib.dll
+C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CanteenApp.Common.Lib\obj\Debug\net6.0\CanteenApp.Common.Lib.pdb
+C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CanteenApp.Common.Lib\obj\Debug\net6.0\ref\CanteenApp.Common.Lib.dll

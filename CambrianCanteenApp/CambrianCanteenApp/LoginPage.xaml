@@ -2,11 +2,35 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CambrianCanteenApp.LoginPage"
-             Title="LoginPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             Title="LoginPage"
+             BackgroundColor="#c21010">
+    <VerticalStackLayout Spacing="25" Padding="30,0" VerticalOptions="Center">
+        <Image Source="Cambrian_logo.png" HeightRequest="150" WidthRequest="150"></Image>
+        <VerticalStackLayout>
+            <Label Text="Welcome" FontSize="28" TextColor="WhiteSmoke" VerticalOptions="Center" HorizontalOptions="Center" />
+            <Label Text="Login to your account" FontSize="18" TextColor="WhiteSmoke" VerticalOptions="Center" HorizontalOptions="Center" />
+
+        </VerticalStackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Frame HasShadow="True" ZIndex="1" CornerRadius="28" HeightRequest="56" WidthRequest="56" BorderColor="White">
+                <Image Source="username.png" HeightRequest="20" WidthRequest="20"/>
+            </Frame>
+            <Frame HasShadow="True" ZIndex="1" CornerRadius="28" HeightRequest="45" Margin="-20,0,0,0" Padding="0" 
+                    BorderColor="White" HorizontalOptions="FillAndExpand">
+                <Entry x:Name="txtbxUser" Margin="20,0,0,0" Placeholder="Student #" VerticalOptions="Center" Keyboard="Email" Text="c00250808"/>
+            </Frame>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Frame HasShadow="True" ZIndex="1" CornerRadius="28" HeightRequest="56" WidthRequest="56" BorderColor="White">
+                <Image Source="password.png" HeightRequest="20" WidthRequest="20"/>
+            </Frame>
+            <Frame HasShadow="True" ZIndex="1" CornerRadius="28" HeightRequest="45" Margin="-20,0,0,0" Padding="0" 
+                    BorderColor="White" HorizontalOptions="FillAndExpand">
+                <Entry x:Name="txtbxPwd" Margin="20,0,0,0" Placeholder="Password" VerticalOptions="Center" IsPassword="True" Keyboard="Text" Text="Cambrian"/>
+            </Frame>
+        </StackLayout>
+        <Button Text="Sign In" CornerRadius="20" WidthRequest="100" HorizontalOptions="Center" TextColor="Black" 
+                FontAttributes="Bold" BackgroundColor="WhiteSmoke" Clicked="Button_Clicked"></Button>
+
     </VerticalStackLayout>
 </ContentPage>
