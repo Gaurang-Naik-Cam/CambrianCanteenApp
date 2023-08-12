@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyCanteenAPI.Models;
-using MyCanteenAPI.ViewModels;
+using CanteenApp.Common.Lib;
 using Newtonsoft.Json;
 
 namespace MyCanteenAPI.Controllers

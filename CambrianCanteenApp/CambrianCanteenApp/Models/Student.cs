@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CambrianCanteenApp.Models
 {
-    public class Student
+    public class StudentVM
     {
         public int ID { get; set; }
         public string Name { get; set; }

@@ -1,8 +1,10 @@
 ﻿using Azure.Core;
 using Microsoft.AspNetCore.Mvc;
 using MyCanteenAPI.Models;
-using MyCanteenAPI.ViewModels;
+using CanteenApp.Common.Lib;
 using Newtonsoft.Json;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 
 namespace MyCanteenAPI.Controllers
 {
@@ -23,6 +25,13 @@ namespace MyCanteenAPI.Controllers
         public IActionResult PostAuthenticate([FromBody]AppCredentials credentials)
         {
             Result resultCall = new Result();
+            var _serializerOptions = new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                NumberHandling = JsonNumberHandling.AllowReadingFromString,
+                WriteIndented = true
+
+            };
             var context = new MyCanteenDbContext();
             Student? result = context.Students.Where(x => x.StudentNumber.Equals(credentials.UserName) && x.Password.Equals(credentials.Password)).FirstOrDefault();
 
@@ -38,20 +47,20 @@ namespace MyCanteenAPI.Controllers
                 resultCall.Message = "Student not found";
                 return NotFound("Student not found");
             }
+
            
-            string json = JsonConvert.SerializeObject(resultCall);
+            //string json = JsonConvert.SerializeObject(resultCall,typeof(Result),null);
             Response.ContentType = "application/json";
-            _logger.LogInformation("Authentication request received at " + DateTime.Now.ToShortTimeString(), json);
-            return Ok(json);
-            
+            _logger.LogInformation("Authentication request received at " + DateTime.Now.ToShortTimeString());
+            return Ok(resultCall);   
         }
 
-        //[HttpGet]
-        //public string Get()
-        //{
-        //    _logger.LogInformation("Received GET request at " + DateTime.Now.ToShortTimeString());
-        //    return "Received GET request at " + DateTime.Now.ToShortTimeString();
-        //}
+        [HttpGet]
+        public string Get()
+        {
+            _logger.LogInformation("Received GET request at " + DateTime.Now.ToShortTimeString());
+            return "Received GET request at " + DateTime.Now.ToShortTimeString();
+        }
 
     }
 }

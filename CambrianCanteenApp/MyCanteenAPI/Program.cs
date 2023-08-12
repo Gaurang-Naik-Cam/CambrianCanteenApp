@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using MyCanteenAPI.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddDbContext<MyCanteenDbContext>();
+
 
 var app = builder.Build();
 

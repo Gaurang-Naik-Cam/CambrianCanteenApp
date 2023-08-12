@@ -33,25 +33,22 @@ public partial class MyCanteenDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=MyCanteenDB");
+        => optionsBuilder.UseSqlServer("Data Source=GAURANGSMACHINE;Initial Catalog=MyCanteenDB;Integrated Security=SSPI;TrustServerCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Cart>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("Cart");
+            entity.ToTable("Cart");
 
             entity.Property(e => e.AddedOn).HasColumnType("datetime");
-            entity.Property(e => e.Id).ValueGeneratedOnAdd();
 
-            entity.HasOne(d => d.FoodItem).WithMany()
+            entity.HasOne(d => d.FoodItem).WithMany(p => p.Carts)
                 .HasForeignKey(d => d.FoodItemId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Cart__FoodItemId__5BE2A6F2");
 
-            entity.HasOne(d => d.Student).WithMany()
+            entity.HasOne(d => d.Student).WithMany(p => p.Carts)
                 .HasForeignKey(d => d.Studentid)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Cart__Studentid__5CD6CB2B");
