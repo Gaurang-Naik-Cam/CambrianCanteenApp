@@ -4,39 +4,18 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:CambrianCanteenApp"
-    Shell.FlyoutBehavior="Disabled"
     Shell.NavBarIsVisible="False">
 
     <ShellContent
         Title="Login"
         ContentTemplate="{DataTemplate local:LoginPage}"
+        FlyoutItemIsVisible="False" 
+        Shell.FlyoutBehavior="Disabled"
         Route="LoginPage" />
-    
-    <ShellContent
-        Title="Home"    
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
 
-    <ShellContent
-        Title="Settings"    
-        ContentTemplate="{DataTemplate local:SettingsPage}"
-        Route="SettingsPage" />
-
-    <TabBar>
-        <Tab Title="Home" Icon="house_door_fill.svg">
-            <ShellContent
-                Icon="house_door_fill.svg"
-                Title="Home"
-                ContentTemplate="{DataTemplate local:MainPage}"
-                Route="home" />
-
-        </Tab>
-        <Tab Title="Settings" Icon="gear_fill.svg">
-            <ShellContent
-                Icon="house_door_fill.svg"
-                Title="Settings"
-                ContentTemplate="{DataTemplate local:SettingsPage}"
-                Route="settings" />
-        </Tab>
-    </TabBar>
+    <Shell.FlyoutFooter>
+        <StackLayout Padding="20">
+            <Button Text="Sign Out" Command="{Binding SignOutCommand}" />
+        </StackLayout>
+    </Shell.FlyoutFooter>
 </Shell>

@@ -4,5 +4,23 @@
         <name>CambrianCanteenApp</name>
     </assembly>
     <members>
+        <member name="T:CambrianCanteenApp.ViewModels.AppShellViewModel">
+            <inheritdoc/>
+        </member>
+        <member name="F:CambrianCanteenApp.ViewModels.AppShellViewModel.signOutCommand">
+            <summary>The backing field for <see cref="P:CambrianCanteenApp.ViewModels.AppShellViewModel.SignOutCommand"/>.</summary>
+        </member>
+        <member name="P:CambrianCanteenApp.ViewModels.AppShellViewModel.SignOutCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:CambrianCanteenApp.ViewModels.AppShellViewModel.SignOut"/>.</summary>
+        </member>
+        <member name="T:CambrianCanteenApp.ViewModels.HomePageViewModel">
+            <inheritdoc/>
+        </member>
+        <member name="F:CambrianCanteenApp.ViewModels.HomePageViewModel.addToCartCommand">
+            <summary>The backing field for <see cref="P:CambrianCanteenApp.ViewModels.HomePageViewModel.AddToCartCommand"/>.</summary>
+        </member>
+        <member name="P:CambrianCanteenApp.ViewModels.HomePageViewModel.AddToCartCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:CambrianCanteenApp.ViewModels.HomePageViewModel.AddToCart(System.Object)"/>.</summary>
+        </member>
     </members>
 </doc>

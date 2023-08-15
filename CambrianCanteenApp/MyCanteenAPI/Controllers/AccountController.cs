@@ -5,6 +5,7 @@ using CanteenApp.Common.Lib;
 using Newtonsoft.Json;
 using System.Text.Json.Serialization;
 using System.Text.Json;
+using Microsoft.EntityFrameworkCore;
 
 namespace MyCanteenAPI.Controllers
 {
@@ -33,13 +34,23 @@ namespace MyCanteenAPI.Controllers
 
             };
             var context = new MyCanteenDbContext();
-            Student? result = context.Students.Where(x => x.StudentNumber.Equals(credentials.UserName) && x.Password.Equals(credentials.Password)).FirstOrDefault();
+            Student? result = context.Students.Where<Student>(x => x.StudentNumber.Equals(credentials.UserName) && x.Password.Equals(credentials.Password)).
+                Include(x=>x.CurrentProgram).FirstOrDefault();
 
             if (result != null)
             {
                 resultCall.IsSuccess = true;
-                resultCall.Data = result;
-                
+                StudentVM student = new StudentVM()
+                {
+                    StudentNumber = result.StudentNumber,
+                    CurrentProgramName = result.CurrentProgram.Name,
+                    EnrolmentDate = result.EnrolmentDate.Value,
+                    Name = result.StudentName,
+                    ID = result.Id,
+                    IsActive = result.IsActive.Value,
+                    Email = result.Email
+                };
+                resultCall.Data = student;
             }
             else
             {

@@ -58,12 +58,39 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\applejuice.jpg" />
+	  <None Remove="Resources\Images\beeffriedrice.jpg" />
+	  <None Remove="Resources\Images\blondecake.jpeg" />
+	  <None Remove="Resources\Images\brownie.jpeg" />
+	  <None Remove="Resources\Images\buffalochickenwrap.jpg" />
 	  <None Remove="Resources\Images\Cambrian_logo.png" />
+	  <None Remove="Resources\Images\cannedcoke.jpeg" />
+	  <None Remove="Resources\Images\cart.jpg" />
+	  <None Remove="Resources\Images\chickenfajita.jpg" />
+	  <None Remove="Resources\Images\chickenfriedrice.jpeg" />
+	  <None Remove="Resources\Images\chickenwings.jpg" />
+	  <None Remove="Resources\Images\chocolatecake.jpg" />
+	  <None Remove="Resources\Images\friedcheesecurds.jpg" />
+	  <None Remove="Resources\Images\gingerale.jpg" />
+	  <None Remove="Resources\Images\homeicon.jpg" />
+	  <None Remove="Resources\Images\hummuswrap.jpg" />
+	  <None Remove="Resources\Images\limecheesecake.jpg" />
+	  <None Remove="Resources\Images\mushroomfriedrice.jpg" />
+	  <None Remove="Resources\Images\nachos.png" />
+	  <None Remove="Resources\Images\Nestea.png" />
+	  <None Remove="Resources\Images\Orders.jpg" />
 	  <None Remove="Resources\Images\Password.png" />
+	  <None Remove="Resources\Images\pepsi.jpg" />
+	  <None Remove="Resources\Images\pitaplate.jpg" />
+	  <None Remove="Resources\Images\pizza.jpg" />
+	  <None Remove="Resources\Images\porkfriedricerecipe.jpg" />
+	  <None Remove="Resources\Images\shripfriedrice.jpeg" />
 	  <None Remove="Resources\Images\username.png" />
+	  <None Remove="Resources\Images\vegetablefriedrice.jpg" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
 	  <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	</ItemGroup>
 
@@ -72,12 +99,29 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Controls\FlyoutHeaderControl.xaml.cs">
+	    <DependentUpon>FlyoutHeaderControl.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Controls\FlyoutHeaderControl.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="HomePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="LoginPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="MyOrders.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="SettingsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
+
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionCambrianCanteenAppHideInfoBar="True" /></VisualStudio></ProjectExtensions>
 
 </Project>

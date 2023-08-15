@@ -8,11 +8,25 @@
     <DefaultDevice>pixel_5_-_api_28</DefaultDevice>
   </PropertyGroup>
   <ItemGroup>
+    <MauiXaml Update="Controls\FlyoutHeaderControl.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="HomePage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="LoginPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="MyOrders.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="SettingsPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Platforms\Windows\Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
 </Project>

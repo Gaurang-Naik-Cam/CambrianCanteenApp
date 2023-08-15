@@ -9,7 +9,8 @@ namespace CambrianCanteenApp
     public static class Constants 
     {
         static string _authAccessKey = "Cambrian123";
-        static string _api_url = " https://565f-184-147-215-77.ngrok-free.app/api/account";//"http://192.168.80.1:1000/api/account";
+        static string _api_url = " https://565f-184-147-215-77.ngrok-free.app/api/";//"http://192.168.80.1:1000/api/account";
+        static string _loggedInUser = "loggedInUser";
 
         public static string AuthAccessToken 
         { 
@@ -19,6 +20,11 @@ namespace CambrianCanteenApp
         public static string API_URI 
         { 
             get { return _api_url; } 
+        }
+
+        public static string LoggedInUser
+        {
+            get { return _loggedInUser; }
         }
     }
 
