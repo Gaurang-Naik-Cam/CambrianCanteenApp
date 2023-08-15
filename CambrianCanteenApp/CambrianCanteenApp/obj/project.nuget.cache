@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "g9vn7o3wLbBY66Jvjr8styBXJSPrm5LEboMd9/om9VLBeL70IiSCJL4qjAvCNxfZ6ROTMaUVD0lll27Tj/VU4Q==",
+  "dgSpecHash": "zwuaEPWiC0WS1V0Ewkt9pw591NQwki0bMzhnBtMYznj2ZeHjWWUEZzYSq9xh6zKQa7Y+2r/II3LQWgdqcrxAXQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Gaura\\source\\repos\\CambrianCanteenApp\\CambrianCanteenApp\\CambrianCanteenApp\\CambrianCanteenApp.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Gaura\\.nuget\\packages\\communitytoolkit.mvvm\\8.2.1\\communitytoolkit.mvvm.8.2.1.nupkg.sha512",
     "C:\\Users\\Gaura\\.nuget\\packages\\googlegson\\2.9.0.1\\googlegson.2.9.0.1.nupkg.sha512",
     "C:\\Users\\Gaura\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.1\\microsoft.extensions.configuration.6.0.1.nupkg.sha512",
     "C:\\Users\\Gaura\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",

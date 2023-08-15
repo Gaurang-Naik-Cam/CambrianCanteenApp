@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace CanteenApp.Common.Lib
 {
-    public class FoodItems
+    public class FoodItemVM
     {
         public int ID { get; set; }
         public string ItemName { get; set; }
-        public string FoodCategoryName { get; set; }
-        public double Price { get; set; }
+        public string CategoryName { get; set; }
+        public string Price { get; set; }
+        public string ImageURL { get; set; }
         DayOfWeek Day { get; set; }
 
     }

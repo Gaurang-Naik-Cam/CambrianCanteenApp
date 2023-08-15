@@ -8,6 +8,6 @@ namespace CanteenApp.Common.Lib
 {
     public class MenuCard
     {
-        List<FoodItems> MenuItems { get; set; }
+        List<FoodItemVM> MenuItems { get; set; }
     }
 }

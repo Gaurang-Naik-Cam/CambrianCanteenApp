@@ -3,6 +3,9 @@ using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.Net.Http.Json;
+using Microsoft.Maui.Controls;
+using CambrianCanteenApp.Controls;
+//using GameController;
 
 namespace CambrianCanteenApp;
 
@@ -31,7 +34,7 @@ public partial class LoginPage : ContentPage
 		string userName = txtbxUser.Text.Trim();
 		string pwd = txtbxPwd.Text.Trim();
 
-        Uri uri = new Uri(string.Format(Constants.API_URI, string.Empty));
+        Uri uri = new Uri(string.Format(Constants.API_URI+"{0}", "Account"));
 
         try
         {
@@ -53,6 +56,77 @@ public partial class LoginPage : ContentPage
                 {
                      NullValueHandling = NullValueHandling.Ignore
                 });
+
+                if(result.IsSuccess)
+                {
+                    //StudentVM student = new StudentVM();//(StudentVM)result.Data;
+                    //student = JsonConvert.DeserializeObject<StudentVM>(result.Data.ToString(),new JsonSerializerSettings() { NullValueHandling = NullValueHandling.Ignore});
+
+                    if (Preferences.ContainsKey(Constants.LoggedInUser))
+                        Preferences.Remove(Constants.LoggedInUser);
+
+                    Preferences.Set(Constants.LoggedInUser, result.Data.ToString());
+                    if (App.IsLoggedIn)
+                    {
+                        //removing home page
+                        var homePage = AppShell.Current.Items.Where(f => f.Title == "Home").FirstOrDefault();
+                        if (homePage != null) 
+                            AppShell.Current.Items.Remove(homePage);
+
+                        //removing order page
+                        var myOrrderPage = AppShell.Current.Items.Where(f => f.Title == "My Orders").FirstOrDefault();
+                        if (homePage != null)
+                            AppShell.Current.Items.Remove(myOrrderPage);
+
+                        
+                        //Adding Flyout Item
+                        var flyoutItem = new FlyoutItem()
+                        {
+                            Title = "Home",
+                            FlyoutDisplayOptions = FlyoutDisplayOptions.AsMultipleItems,
+                            Items =
+                            {
+                                new ShellContent()
+                                {
+                                    Title = "Home",
+                                    Icon = "homeicon.jpg",
+                                    FlyoutIcon = "homeicon.jpg",
+                                    ContentTemplate = new DataTemplate(typeof(HomePage))
+                                },
+                                new ShellContent()
+                                {
+                                    Title = "My Orders",
+                                    Icon = "orders.jpg",
+                                    FlyoutIcon = "orders.jpg",
+                                    ContentTemplate = new DataTemplate(typeof(MyOrders)),
+                                }
+                            }
+                        };
+
+                        if (!AppShell.Current.Items.Contains(flyoutItem))
+                        {
+                            AppShell.Current.Items.Add(flyoutItem);
+                        }
+                        AppShell.Current.FlyoutHeader = new FlyoutHeaderControl();
+                        AppShell.Current.FlyoutBehavior = FlyoutBehavior.Flyout;
+                    }
+
+                    //await SecureStorage.Default.SetAsync("Name", student.Name);
+                    //await SecureStorage.Default.SetAsync("StudentNumber", student.StudentNumber);
+                    //await SecureStorage.Default.SetAsync("Email", student.Email);
+                    //await SecureStorage.Default.SetAsync("IsActive", student.IsActive.ToString());
+                    //await SecureStorage.Default.SetAsync("EnrolmentDate", student.EnrolmentDate.ToShortTimeString());
+                    //await SecureStorage.Default.SetAsync("Id", student.ID.ToString());
+                    //await SecureStorage.Default.SetAsync("ProgramName", student.CurrentProgramName);
+
+                    //int number = 5 >= 31 ? 34 : 33;
+
+
+                    await Navigation.PushAsync(new HomePage());
+                    //await Shell.Current.GoToAsync("HomePage");
+
+                }
+
             }
         }
         catch (Exception ex)

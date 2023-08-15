@@ -138,10 +138,9 @@ public partial class MyCanteenDbContext : DbContext
             entity.ToTable("ProgramName");
 
             entity.Property(e => e.Id).HasColumnName("ID");
-            entity.Property(e => e.ProgramName1)
+            entity.Property(e => e.Name)
                 .HasMaxLength(50)
-                .IsUnicode(false)
-                .HasColumnName("ProgramName");
+                .IsUnicode(false);
         });
 
         modelBuilder.Entity<Student>(entity =>

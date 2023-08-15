@@ -30,7 +30,17 @@ namespace MyCanteenAPI.Controllers
                 if (Item != null)
                 {
                     resultCall.IsSuccess = true;
-                    resultCall.Data = Item;
+                    //resultCall.Data = Item;
+
+                    FoodItemVM foodItem = new FoodItemVM()
+                    {
+                        ID = Item.Id,
+                        CategoryName = Item.FoodCategory.CategoryName,
+                        Price = Item.Price.ToString(),
+                        ImageURL = Item.ImageUrl,
+                        ItemName = Item.ItemName
+                    };
+                    resultCall.Data = foodItem;
                 }
                 else
                 {
@@ -40,10 +50,10 @@ namespace MyCanteenAPI.Controllers
                     return NotFound(message);
                 }
 
-                string json = JsonConvert.SerializeObject(resultCall);//, Formatting.Indented, new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
+               // string json = JsonConvert.SerializeObject(resultCall);//, Formatting.Indented, new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
                 Response.ContentType = "application/json";
-                _logger.LogInformation("Item by Id fetch request received at " + DateTime.Now.ToShortTimeString(), json);
-                return Ok(json);
+                _logger.LogInformation("Item by Id fetch request received at " + DateTime.Now.ToShortTimeString());
+                return Ok(resultCall);
             }
             else
                 return NotFound();
@@ -56,7 +66,25 @@ namespace MyCanteenAPI.Controllers
             if(menuItems != null)
             {
                 resultCall.IsSuccess = true;
-                resultCall.Data = menuItems;
+                // resultCall.Data = menuItems;
+                 List<FoodItemVM> foodItemsList = new List<FoodItemVM>();
+
+                foreach (var foodCategory in menuItems)
+                {
+                    foreach(var foodItem in foodCategory.FoodItems)
+                    {
+                        foodItemsList.Add(new FoodItemVM()
+                        {
+                            CategoryName = foodCategory.CategoryName,
+                            ID = foodItem.Id,
+                            ImageURL = foodItem.ImageUrl,
+                            ItemName = foodItem.ItemName,
+                            Price = foodItem.Price.ToString()
+                        });
+                    }
+                }
+
+                resultCall.Data = foodItemsList;
             }
             else
             {
@@ -66,10 +94,10 @@ namespace MyCanteenAPI.Controllers
                 return NotFound(message);
             }
 
-            string json = JsonConvert.SerializeObject(resultCall,Formatting.Indented, new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
+            //string json = JsonConvert.SerializeObject(resultCall,Formatting.Indented, new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
             Response.ContentType = "application/json";
-            _logger.LogInformation("Menu Items fetch request received at " + DateTime.Now.ToShortTimeString(), json);
-            return Ok(json);
+            _logger.LogInformation("Menu Items fetch request received at " + DateTime.Now.ToShortTimeString());
+            return Ok(resultCall);
 
         }
     }
