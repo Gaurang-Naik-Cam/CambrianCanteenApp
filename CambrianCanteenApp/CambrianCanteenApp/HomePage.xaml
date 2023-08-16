@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CambrianCanteenApp.ViewModels"
              x:Class="CambrianCanteenApp.HomePage"
              Title="Home Page"
              BackgroundColor="#c21010">
@@ -13,7 +14,8 @@
         </CollectionView.Header>
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <Frame Margin="10" >
+               
+                    <Frame Margin="10" >
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="2*"/>
@@ -23,9 +25,9 @@
                         <VerticalStackLayout Grid.ColumnSpan="1" Grid.Row="0" Padding="5" VerticalOptions="Center">
                             <Image Source="{Binding ImageURL}" HeightRequest="150" WidthRequest="450"/>
                             <Label Text="{Binding ItemName}" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center" Padding="5"/>
-                            <Label Text="{Binding CategoryName}" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center" Padding="5"/>
-                            <Label Text="{Binding Price}" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center" Padding="5"/>
-                            <Button Text="Add To Cart" Command="{Binding AddToCart}"  BackgroundColor="Green" TextColor="WhiteSmoke" HorizontalOptions="Center" Padding="10"></Button>
+                            <Label Text="{Binding CategoryName,StringFormat=' Category : {0}'}" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center" Padding="5"/>
+                            <Label Text="{Binding Price, StringFormat='Price : $ {0:C2}'}" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center" Padding="5"/>
+                            <Button Text="Add To Cart" Command="{Binding Source={RelativeSource AncestorType={x:Type local:HomePageViewModel}}, Path=AddToCartCommand}" CommandParameter="{Binding ID}"  BackgroundColor="Green" TextColor="WhiteSmoke" HorizontalOptions="Center" Padding="10"></Button>
                         </VerticalStackLayout>
                         <!--<VerticalStackLayout Grid.Column="1" Grid.Row="0" Padding="5" VerticalOptions="Center" HorizontalOptions="Center">
                           
@@ -35,6 +37,7 @@
                         </VerticalStackLayout>-->
                     </Grid>
                 </Frame>
+              
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>

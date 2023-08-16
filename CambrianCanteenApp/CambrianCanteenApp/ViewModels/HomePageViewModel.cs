@@ -8,29 +8,39 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace CambrianCanteenApp.ViewModels
 {
-    public partial class HomePageViewModel : ObservableObject
+    public partial class HomePageViewModel //: ObservableObject
     {
         //public ICommand AddToCart { get; set; }
-        //public List<FoodItemVM> oldMenuCard = new List<FoodItemVM>();
-        public ObservableCollection<FoodItemVM> MenuCard { get; private set; } = new ObservableCollection<FoodItemVM>();
+        private List<FoodItemVM> _menuCard;
+        public List<FoodItemVM> MenuCard
+        {
+            get { return _menuCard; }
+            
+        }
+        //public ObservableCollection<FoodItemVM> MenuCard { get; private set; } = new ObservableCollection<FoodItemVM>();
         HttpClient _client;
+       
 
         public HomePageViewModel()
         {
+           
             //oldMenuCard = GetMenuCard().Result;
+            
             GetMenuCard();
+            //DataContext = this;
             //AddToCart = new Command(AddToCartClick);
         }
 
 
-        [RelayCommand]
+        [RelayCommand]    
         public void AddToCart(object obj)
         {
-            App.Current.MainPage.DisplayAlert("Hello", "Product ID is ", "Ok");
+            App.Current.MainPage.DisplayAlert("Cart is updated", string.Format("Product {0} is added to the Cart.",obj.ToString()), "Ok");
         }
 
         private async void GetMenuCard()
         {
+            _menuCard = new List<FoodItemVM>();
             Uri uri = new Uri(string.Format(Constants.API_URI + "{0}", "Menu"));
             //List<FoodItemVM> menuCardList = new List<FoodItemVM>();
             _client = new HttpClient();
@@ -48,11 +58,12 @@ namespace CambrianCanteenApp.ViewModels
 
                     if (result.IsSuccess)
                     {
-                        var resultData = JsonConvert.DeserializeObject<List<FoodItemVM>>(result.Data.ToString(), new JsonSerializerSettings() { NullValueHandling = NullValueHandling.Ignore });
-                        foreach (var item in resultData)
-                        {
-                            MenuCard.Add(item);
-                        }
+                        _menuCard = JsonConvert.DeserializeObject<List<FoodItemVM>>(result.Data.ToString(), new JsonSerializerSettings() { NullValueHandling = NullValueHandling.Ignore });
+                        //foreach (var item in resultData)
+                        //{
+                        //    //MenuCard.Add(item);
+                        //    _menuCard.Add
+                        //}
 
                     }
                 }

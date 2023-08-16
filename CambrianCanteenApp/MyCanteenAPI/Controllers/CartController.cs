@@ -70,7 +70,7 @@ namespace MyCanteenAPI.Controllers
                     // var existingCart = _dbContext.Carts.Where(c => c.FoodItemId == cart.FoodItemId && c.Studentid == cart.Studentid).FirstOrDefault();
 
                     cart.Qty += 1;
-                    _dbContext.Update(cart);
+                    var output =_dbContext.Update(cart);
                     result.Message = string.Format("Quantity is incremented to the cart Id.{0}", cart.Id);
                 }
                 else
@@ -84,6 +84,7 @@ namespace MyCanteenAPI.Controllers
                     result.Message = string.Format("Food Item = {0} and Student ID = {1} Added to the cart.", newCart.FoodItemId, newCart.Studentid);
                 }
                 _dbContext.SaveChanges();
+
                 result.IsSuccess = true;
 
                 _logger.LogInformation(result.Message);
@@ -95,9 +96,11 @@ namespace MyCanteenAPI.Controllers
                 _logger.LogCritical(result.Message);
             }
 
-            string json = JsonConvert.SerializeObject(result);
+            //string json = JsonConvert.SerializeObject(result);
+            var updatedCart =_dbContext.Carts.Where<Cart>(c=> c.Studentid == inputCart.studentId).FirstOrDefault();
+            
             Request.ContentType = "application/json";
-            return Ok(json);
+            return Ok(result);
 
         }
 
