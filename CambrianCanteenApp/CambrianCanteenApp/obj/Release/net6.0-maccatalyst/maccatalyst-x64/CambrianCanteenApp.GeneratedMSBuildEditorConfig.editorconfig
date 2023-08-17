@@ -22,6 +22,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = CambrianCanteenApp.AppShel
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
+[C:/Users/Gaura/source/repos/CambrianCanteenApp/CambrianCanteenApp/CambrianCanteenApp/Controls/FlyoutHeaderControl.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = CambrianCanteenApp.Controls.FlyoutHeaderControl.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\FlyoutHeaderControl.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\FlyoutHeaderControl.xaml
+
 [C:/Users/Gaura/source/repos/CambrianCanteenApp/CambrianCanteenApp/CambrianCanteenApp/HomePage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = CambrianCanteenApp.HomePage.xaml
@@ -39,6 +45,12 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = CambrianCanteenApp.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
+
+[C:/Users/Gaura/source/repos/CambrianCanteenApp/CambrianCanteenApp/CambrianCanteenApp/MyOrders.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = CambrianCanteenApp.MyOrders.xaml
+build_metadata.AdditionalFiles.TargetPath = MyOrders.xaml
+build_metadata.AdditionalFiles.RelativePath = MyOrders.xaml
 
 [C:/Users/Gaura/source/repos/CambrianCanteenApp/CambrianCanteenApp/CambrianCanteenApp/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml

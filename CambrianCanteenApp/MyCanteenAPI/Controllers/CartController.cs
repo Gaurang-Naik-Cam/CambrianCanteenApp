@@ -84,9 +84,7 @@ namespace MyCanteenAPI.Controllers
                     result.Message = string.Format("Food Item = {0} and Student ID = {1} Added to the cart.", newCart.FoodItemId, newCart.Studentid);
                 }
                 _dbContext.SaveChanges();
-
                 result.IsSuccess = true;
-
                 _logger.LogInformation(result.Message);
             }
             else
@@ -97,11 +95,35 @@ namespace MyCanteenAPI.Controllers
             }
 
             //string json = JsonConvert.SerializeObject(result);
-            var updatedCart =_dbContext.Carts.Where<Cart>(c=> c.Studentid == inputCart.studentId).FirstOrDefault();
+            var updatedCart = (from c in _dbContext.Carts join f in _dbContext.FoodItems on c.FoodItemId equals f.Id
+                               orderby c.Id ascending
+                               select new
+                               {
+                                   StudentId = c.Studentid,
+                                   FoodItemId = c.FoodItemId,
+                                   FoodItemName = f.ItemName,
+                                   Price = f.Price,
+                                   ImageURL = f.ImageUrl,
+                                   QTY = c.Qty
+                               }).ToList();
+
+            List<CartVM> cartVM = new List<CartVM>();
+            foreach (var item in updatedCart)
+            {
+                CartVM cart = new CartVM();
+                cart.studentId = item.StudentId;
+                cart.price = item.Price.ToString();
+                cart.imageURL = item.ImageURL;
+                cart.foodItemName = item.FoodItemName;
+                cart.foodItemId = item.FoodItemId;
+                cart.qty = item.QTY;
+
+                cartVM.Add(cart);
+            }
             
             Request.ContentType = "application/json";
+            result.Data = cartVM;
             return Ok(result);
-
         }
 
         [HttpDelete]
@@ -153,9 +175,9 @@ namespace MyCanteenAPI.Controllers
                 _logger.LogCritical(result.Message);
             }
 
-            string json = JsonConvert.SerializeObject(result);
+            //string json = JsonConvert.SerializeObject(result);
             Request.ContentType = "application/json";
-            return Ok(json);
+            return Ok(result);
         }
     }
 }

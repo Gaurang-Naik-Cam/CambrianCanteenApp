@@ -99,7 +99,15 @@ public partial class LoginPage : ContentPage
                                     Icon = "orders.jpg",
                                     FlyoutIcon = "orders.jpg",
                                     ContentTemplate = new DataTemplate(typeof(MyOrders)),
+                                },
+                                 new ShellContent()
+                                {
+                                    Title = "My Cart",
+                                    Icon = "cart.jpg",
+                                    FlyoutIcon = "cart.jpg",
+                                    ContentTemplate = new DataTemplate(typeof(MyCartPage)),
                                 }
+
                             }
                         };
 
