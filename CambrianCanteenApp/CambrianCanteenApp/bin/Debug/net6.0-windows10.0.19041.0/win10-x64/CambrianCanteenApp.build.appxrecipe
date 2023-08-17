@@ -724,6 +724,9 @@
     <AppxPackagedFile Include="C:\Users\Gaura\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.27\lib\net6.0\WinRT.Runtime.dll">
       <PackagePath>WinRT.Runtime.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gaura\.nuget\packages\communitytoolkit.mvvm\8.2.1\lib\net6.0\CommunityToolkit.Mvvm.dll">
+      <PackagePath>CommunityToolkit.Mvvm.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Gaura\.nuget\packages\microsoft.extensions.configuration\6.0.1\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll">
       <PackagePath>Microsoft.Extensions.Configuration.dll</PackagePath>
     </AppxPackagedFile>
@@ -976,8 +979,41 @@
     <AppxPackagedFile Include="C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CambrianCanteenApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-400.png">
       <PackagePath>appiconWideTile.scale-400.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CambrianCanteenApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\applejuice.scale-100.jpg">
+      <PackagePath>applejuice.scale-100.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CambrianCanteenApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\beeffriedrice.scale-100.jpg">
+      <PackagePath>beeffriedrice.scale-100.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CambrianCanteenApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\blondecake.scale-100.jpeg">
+      <PackagePath>blondecake.scale-100.jpeg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CambrianCanteenApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\brownie.scale-100.jpeg">
+      <PackagePath>brownie.scale-100.jpeg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CambrianCanteenApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\buffalochickenwrap.scale-100.jpg">
+      <PackagePath>buffalochickenwrap.scale-100.jpg</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CambrianCanteenApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\cambrian_logo.scale-100.png">
       <PackagePath>cambrian_logo.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CambrianCanteenApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\cannedcoke.scale-100.jpeg">
+      <PackagePath>cannedcoke.scale-100.jpeg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CambrianCanteenApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\cart.scale-100.jpg">
+      <PackagePath>cart.scale-100.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CambrianCanteenApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\chickenfajita.scale-100.jpg">
+      <PackagePath>chickenfajita.scale-100.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CambrianCanteenApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\chickenfriedrice.scale-100.jpeg">
+      <PackagePath>chickenfriedrice.scale-100.jpeg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CambrianCanteenApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\chickenwings.scale-100.jpg">
+      <PackagePath>chickenwings.scale-100.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CambrianCanteenApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\chocolatecake.scale-100.jpg">
+      <PackagePath>chocolatecake.scale-100.jpg</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CambrianCanteenApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-100.png">
       <PackagePath>dotnet_bot.scale-100.png</PackagePath>
@@ -994,11 +1030,56 @@
     <AppxPackagedFile Include="C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CambrianCanteenApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-400.png">
       <PackagePath>dotnet_bot.scale-400.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CambrianCanteenApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\friedcheesecurds.scale-100.jpg">
+      <PackagePath>friedcheesecurds.scale-100.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CambrianCanteenApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\gingerale.scale-100.jpg">
+      <PackagePath>gingerale.scale-100.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CambrianCanteenApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\homeicon.scale-100.jpg">
+      <PackagePath>homeicon.scale-100.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CambrianCanteenApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\hummuswrap.scale-100.jpg">
+      <PackagePath>hummuswrap.scale-100.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CambrianCanteenApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\limecheesecake.scale-100.jpg">
+      <PackagePath>limecheesecake.scale-100.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CambrianCanteenApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\mushroomfriedrice.scale-100.jpg">
+      <PackagePath>mushroomfriedrice.scale-100.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CambrianCanteenApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\nachos.scale-100.png">
+      <PackagePath>nachos.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CambrianCanteenApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\nestea.scale-100.png">
+      <PackagePath>nestea.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CambrianCanteenApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\orders.scale-100.jpg">
+      <PackagePath>orders.scale-100.jpg</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CambrianCanteenApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\password.scale-100.png">
       <PackagePath>password.scale-100.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CambrianCanteenApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\pepsi.scale-100.jpg">
+      <PackagePath>pepsi.scale-100.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CambrianCanteenApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\pitaplate.scale-100.jpg">
+      <PackagePath>pitaplate.scale-100.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CambrianCanteenApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\pizza.scale-100.jpg">
+      <PackagePath>pizza.scale-100.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CambrianCanteenApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\porkfriedricerecipe.scale-100.jpg">
+      <PackagePath>porkfriedricerecipe.scale-100.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CambrianCanteenApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\shripfriedrice.scale-100.jpeg">
+      <PackagePath>shripfriedrice.scale-100.jpeg</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CambrianCanteenApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\username.scale-100.png">
       <PackagePath>username.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gaura\source\repos\CambrianCanteenApp\CambrianCanteenApp\CambrianCanteenApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\vegetablefriedrice.scale-100.jpg">
+      <PackagePath>vegetablefriedrice.scale-100.jpg</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

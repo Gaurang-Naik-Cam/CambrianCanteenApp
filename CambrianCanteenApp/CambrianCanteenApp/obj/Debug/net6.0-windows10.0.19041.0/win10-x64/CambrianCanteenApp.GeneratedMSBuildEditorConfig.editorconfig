@@ -46,6 +46,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = CambrianCanteenApp.MainPag
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
+[C:/Users/Gaura/source/repos/CambrianCanteenApp/CambrianCanteenApp/CambrianCanteenApp/MyCartPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = CambrianCanteenApp.MyCartPage.xaml
+build_metadata.AdditionalFiles.TargetPath = MyCartPage.xaml
+build_metadata.AdditionalFiles.RelativePath = MyCartPage.xaml
+
 [C:/Users/Gaura/source/repos/CambrianCanteenApp/CambrianCanteenApp/CambrianCanteenApp/MyOrders.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = CambrianCanteenApp.MyOrders.xaml

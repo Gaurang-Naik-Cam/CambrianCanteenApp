@@ -70,7 +70,7 @@ namespace MyCanteenAPI.Controllers
                     // var existingCart = _dbContext.Carts.Where(c => c.FoodItemId == cart.FoodItemId && c.Studentid == cart.Studentid).FirstOrDefault();
 
                     cart.Qty += 1;
-                    _dbContext.Update(cart);
+                    var output =_dbContext.Update(cart);
                     result.Message = string.Format("Quantity is incremented to the cart Id.{0}", cart.Id);
                 }
                 else
@@ -85,7 +85,6 @@ namespace MyCanteenAPI.Controllers
                 }
                 _dbContext.SaveChanges();
                 result.IsSuccess = true;
-
                 _logger.LogInformation(result.Message);
             }
             else
@@ -95,10 +94,36 @@ namespace MyCanteenAPI.Controllers
                 _logger.LogCritical(result.Message);
             }
 
-            string json = JsonConvert.SerializeObject(result);
-            Request.ContentType = "application/json";
-            return Ok(json);
+            //string json = JsonConvert.SerializeObject(result);
+            var updatedCart = (from c in _dbContext.Carts join f in _dbContext.FoodItems on c.FoodItemId equals f.Id
+                               orderby c.Id ascending
+                               select new
+                               {
+                                   StudentId = c.Studentid,
+                                   FoodItemId = c.FoodItemId,
+                                   FoodItemName = f.ItemName,
+                                   Price = f.Price,
+                                   ImageURL = f.ImageUrl,
+                                   QTY = c.Qty
+                               }).ToList();
 
+            List<CartVM> cartVM = new List<CartVM>();
+            foreach (var item in updatedCart)
+            {
+                CartVM cart = new CartVM();
+                cart.studentId = item.StudentId;
+                cart.price = item.Price.ToString();
+                cart.imageURL = item.ImageURL;
+                cart.foodItemName = item.FoodItemName;
+                cart.foodItemId = item.FoodItemId;
+                cart.qty = item.QTY;
+
+                cartVM.Add(cart);
+            }
+            
+            Request.ContentType = "application/json";
+            result.Data = cartVM;
+            return Ok(result);
         }
 
         [HttpDelete]
@@ -150,9 +175,9 @@ namespace MyCanteenAPI.Controllers
                 _logger.LogCritical(result.Message);
             }
 
-            string json = JsonConvert.SerializeObject(result);
+            //string json = JsonConvert.SerializeObject(result);
             Request.ContentType = "application/json";
-            return Ok(json);
+            return Ok(result);
         }
     }
 }
