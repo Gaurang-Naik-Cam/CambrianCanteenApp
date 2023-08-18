@@ -16,6 +16,7 @@ namespace CambrianCanteenApp
         static string _cart = "currentCart";
 
         static int _applicableTax = 13;
+        static int _serviceCharge = 15;
 
         public static string AuthAccessToken 
         { 
@@ -41,6 +42,8 @@ namespace CambrianCanteenApp
         {
             get { return _cart; }
         }
+
+        public static int ServiceCharge { get => _serviceCharge;}
 
         public static StudentVM GetLoggedInUserInfo()
         {

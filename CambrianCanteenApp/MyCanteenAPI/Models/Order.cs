@@ -19,6 +19,8 @@ public partial class Order
 
     public double Tax { get; set; }
 
+    public double? ServiceCharge { get; set; }
+
     public virtual ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
 
     public virtual OrderStatus Status { get; set; } = null!;

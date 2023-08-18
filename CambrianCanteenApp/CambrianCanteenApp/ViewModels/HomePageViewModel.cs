@@ -26,9 +26,9 @@ namespace CambrianCanteenApp.ViewModels
 
         public HomePageViewModel()
         {
-           
+
             //oldMenuCard = GetMenuCard().Result;
-            
+            _client = new HttpClient();
             GetMenuCard();
             //DataContext = this;
             //AddToCart = new Command(AddToCartClick);
@@ -102,7 +102,7 @@ namespace CambrianCanteenApp.ViewModels
             _menuCard = new List<FoodItemVM>();
             Uri uri = new Uri(string.Format(Constants.API_URI + "{0}", "Menu"));
             //List<FoodItemVM> menuCardList = new List<FoodItemVM>();
-            _client = new HttpClient();
+           
             try
             {
                 HttpResponseMessage response = null;

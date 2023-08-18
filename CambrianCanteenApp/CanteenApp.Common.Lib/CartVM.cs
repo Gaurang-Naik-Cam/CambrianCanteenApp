@@ -14,5 +14,9 @@ namespace CanteenApp.Common.Lib
         public string price { get; set; }
         public int qty { get; set; }
         public int studentId { get; set; }
+        public float totalItemPrice
+        {
+            get { return float.Parse(price) * qty; }
+        }
     }
 }

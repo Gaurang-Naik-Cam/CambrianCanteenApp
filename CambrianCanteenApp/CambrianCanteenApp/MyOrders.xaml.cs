@@ -1,9 +1,12 @@
+using CambrianCanteenApp.ViewModels;
+
 namespace CambrianCanteenApp;
 
-public partial class MyOrders : ContentPage
+public partial class MyOrdersPage : ContentPage
 {
-	public MyOrders()
+	public MyOrdersPage()
 	{
 		InitializeComponent();
+		BindingContext = new MyOrderViewModel();
 	}
 }

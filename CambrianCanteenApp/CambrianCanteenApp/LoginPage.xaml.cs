@@ -78,7 +78,7 @@ public partial class LoginPage : ContentPage
                         if (homePage != null)
                             AppShell.Current.Items.Remove(myOrrderPage);
 
-                        
+
                         //Adding Flyout Item
                         var flyoutItem = new FlyoutItem()
                         {
@@ -93,21 +93,31 @@ public partial class LoginPage : ContentPage
                                     FlyoutIcon = "homeicon.jpg",
                                     ContentTemplate = new DataTemplate(typeof(HomePage))
                                 },
-                                new ShellContent()
-                                {
-                                    Title = "My Orders",
-                                    Icon = "orders.jpg",
-                                    FlyoutIcon = "orders.jpg",
-                                    ContentTemplate = new DataTemplate(typeof(MyOrders)),
-                                },
+
                                  new ShellContent()
                                 {
                                     Title = "My Cart",
                                     Icon = "cart.jpg",
                                     FlyoutIcon = "cart.jpg",
                                     ContentTemplate = new DataTemplate(typeof(MyCartPage)),
-                                }
+                                },
 
+                                new ShellContent()
+                                {
+                                    Title = "My Orders",
+                                    Icon = "orders.jpg",
+                                    FlyoutIcon = "orders.jpg",
+                                    ContentTemplate = new DataTemplate(typeof(MyOrdersPage)),
+                                }
+                                //,
+                                //new ShellContent()
+                                //{
+                                //   Title = "CheckOutPage",
+                                //   ContentTemplate = new DataTemplate(typeof(CheckOutPage)),
+                                //   IsVisible = false,
+                                //   FlyoutItemIsVisible = false,
+                                //   Route =nameof(CheckOutPage)
+                                //}
                             }
                         };
 

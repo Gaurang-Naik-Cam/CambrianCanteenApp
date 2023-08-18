@@ -2,11 +2,58 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CambrianCanteenApp.MyCartPage"
-             Title="MyCartPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             xmlns:local ="clr-namespace:CambrianCanteenApp.ViewModels"
+             Title="MyCart"
+             BackgroundColor="#c21010">
+    <ContentPage.Resources>
+        <local:QtyConverter x:Key="QtyConvert" />
+    </ContentPage.Resources>
+
+    <CollectionView x:Name="collectionView" ItemsLayout="VerticalList" ItemsSource="{Binding CurrentCart}" EmptyView="The cart is empty, Start Shopping!">
+        <CollectionView.Header>
+            <VerticalStackLayout BackgroundColor="#c21010" Padding="5">
+                <Label Text="My Cart" TextColor="WhiteSmoke" FontSize="Large" HorizontalOptions="Center" FontAttributes="Bold"></Label>
+            </VerticalStackLayout>
+        </CollectionView.Header>
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Frame Margin="10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="1*"/>
+
+                        </Grid.ColumnDefinitions>
+                        <VerticalStackLayout Grid.Column="0" Grid.Row="0" Padding="5" VerticalOptions="Start">
+                            <Image Source="{Binding imageURL}" HeightRequest="50" WidthRequest="50"/>
+                            <Label Text="{Binding foodItemName}" FontSize="Small" FontAttributes="Bold" HorizontalTextAlignment="Start" Padding="2"/>
+
+
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" Grid.Row="0" Padding="5" VerticalOptions="Center" HorizontalOptions="Center">
+                            <!--<Stepper x:Name="_stepper" Value="{Binding qty,Mode=TwoWay}" Maximum="10" Minimum="0" Increment="1" HorizontalOptions="Center" VerticalOptions="Center" ValueChanged="_stepper_ValueChanged" />-->
+                            <HorizontalStackLayout>
+                                <Button Text="+" Command="{Binding Source={RelativeSource AncestorType={x:Type local:MyCartViewModel}}, Path=IncreaseQtyCommand}" CommandParameter="{Binding foodItemId}" BackgroundColor="Green" TextColor="WhiteSmoke" HorizontalOptions="Start" VerticalOptions="Start" Margin="5"></Button>
+
+                                <Button Text="-" Command="{Binding Source={RelativeSource AncestorType={x:Type local:MyCartViewModel}}, Path=DecreaseQtyCommand}" CommandParameter="{Binding foodItemId}" BackgroundColor="Red" TextColor="WhiteSmoke" HorizontalOptions="End" VerticalOptions="End" Margin="5"></Button>
+
+                            </HorizontalStackLayout>
+                            <!--<Label Text="{Binding Source={x:Reference _stepper}, Path=Value, StringFormat='Qty : {0}'}" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center" Padding="5"/>-->
+                            <Label Text="{Binding qty,StringFormat='Qty : {0}'}" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center" Padding="5"/>
+
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="2" Grid.Row="0" Padding="5" VerticalOptions="Center">
+                            <Label Text="{Binding totalItemPrice, StringFormat='Price : {0:C2}'}" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center" Padding="2"/>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Frame>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+        <CollectionView.Footer>
+            <StackLayout BackgroundColor="Black" Padding="5">
+                <Button Text="Checkout" BackgroundColor="Green" TextColor="WhiteSmoke" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked"></Button>
+            </StackLayout>
+        </CollectionView.Footer>
+    </CollectionView>
 </ContentPage>
