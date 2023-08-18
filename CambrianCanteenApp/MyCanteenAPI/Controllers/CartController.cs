@@ -126,7 +126,7 @@ namespace MyCanteenAPI.Controllers
             return Ok(result);
         }
 
-        [HttpDelete]
+        [HttpPost]
         [Route("DeleteCart")]
         public IActionResult DeleteCart(InputCart inputCart)
         {
@@ -175,8 +175,35 @@ namespace MyCanteenAPI.Controllers
                 _logger.LogCritical(result.Message);
             }
 
-            //string json = JsonConvert.SerializeObject(result);
+            var updatedCart = (from c in _dbContext.Carts
+                               join f in _dbContext.FoodItems on c.FoodItemId equals f.Id
+                               orderby c.Id ascending
+                               select new
+                               {
+                                   StudentId = c.Studentid,
+                                   FoodItemId = c.FoodItemId,
+                                   FoodItemName = f.ItemName,
+                                   Price = f.Price,
+                                   ImageURL = f.ImageUrl,
+                                   QTY = c.Qty
+                               }).ToList();
+
+            List<CartVM> cartVM = new List<CartVM>();
+            foreach (var item in updatedCart)
+            {
+                CartVM cart = new CartVM();
+                cart.studentId = item.StudentId;
+                cart.price = item.Price.ToString();
+                cart.imageURL = item.ImageURL;
+                cart.foodItemName = item.FoodItemName;
+                cart.foodItemId = item.FoodItemId;
+                cart.qty = item.QTY;
+
+                cartVM.Add(cart);
+            }
+
             Request.ContentType = "application/json";
+            result.Data = cartVM;
             return Ok(result);
         }
     }

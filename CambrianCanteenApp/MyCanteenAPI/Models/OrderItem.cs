@@ -11,6 +11,8 @@ public partial class OrderItem
 
     public int FoodItemId { get; set; }
 
+    public int? Qty { get; set; }
+
     public virtual FoodItem FoodItem { get; set; } = null!;
 
     public virtual Order Order { get; set; } = null!;

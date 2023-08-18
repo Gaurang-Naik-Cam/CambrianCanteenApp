@@ -1,12 +1,36 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CambrianCanteenApp.MyOrders"
-             Title="MyOrders">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to My Orders"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             x:Class="CambrianCanteenApp.MyOrdersPage"
+             xmlns:local ="clr-namespace:CambrianCanteenApp.ViewModels"
+             Title="My Orders"
+             BackgroundColor="#c21010">
+    <ScrollView>
+        <CollectionView x:Name="collectionView" BackgroundColor="#c21010" ItemsLayout="VerticalList" ItemsSource="{Binding MyOrderList}" EmptyView="No orders as yet, Start Shopping!">
+            <CollectionView.Header>
+                <VerticalStackLayout BackgroundColor="#c21010" Padding="5">
+                    <Label Text="My Orders" TextColor="WhiteSmoke" FontSize="Large" HorizontalOptions="Center" FontAttributes="Bold"></Label>
+                </VerticalStackLayout>
+            </CollectionView.Header>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="10" BorderColor="WhiteSmoke">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+
+                            </Grid.ColumnDefinitions>
+                            <HorizontalStackLayout Grid.Column="0" Grid.Row="0" Padding="5" VerticalOptions="Start">
+                                <Label Text="{Binding orderNumber}" FontSize="Small" FontAttributes="Bold" HorizontalTextAlignment="Start" Padding="5" Margin="5"/>
+                                <Label Text="{Binding status}" FontSize="Small" FontAttributes="Bold" TextColor="Black" BackgroundColor="LightGreen" HorizontalTextAlignment="End" Padding="5" Margin="5"/>
+
+                            </HorizontalStackLayout>
+                            <!--<Line X1="200"></Line>-->
+
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ScrollView>
 </ContentPage>

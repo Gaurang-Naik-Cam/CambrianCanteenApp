@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using MyCanteenAPI.Models;
 using CanteenApp.Common.Lib;
 using Newtonsoft.Json;
+using Microsoft.EntityFrameworkCore;
 
 namespace MyCanteenAPI.Controllers
 {
@@ -34,17 +35,20 @@ namespace MyCanteenAPI.Controllers
                 newOrder.CreatedOn = DateTime.Now;
                 newOrder.Total = inputOrder.total;
                 newOrder.Tax = inputOrder.tax;
-                foreach(int itemId in inputOrder.foodItems)
+                newOrder.ServiceCharge = inputOrder.serviceCharge;
+                foreach(var item in inputOrder.foodItems)
                 {
                  //   var _foodItem = _dbContext.FoodItems.Where<FoodItem>(f => f.Id == itemId).FirstOrDefault();
 
                    // if (_foodItem != null)
                    // {
-                        newOrder.OrderItems.Add(new OrderItem { FoodItemId = itemId });
+                        newOrder.OrderItems.Add(new OrderItem { FoodItemId = item.foodItemId, Qty = item.Qty });
                     //}
                 }
 
                 _dbContext.Orders.Add(newOrder);
+                var carts = _dbContext.Carts.Where(c => c.Studentid == newOrder.StudentId);
+                _dbContext.Carts.RemoveRange(carts);
                 _dbContext.SaveChanges();
                 result.IsSuccess = true;
                 result.Message = string.Format("New Order is placed. Order Id : {0}, Order # : {1}", newOrder.Id,newOrder.OrderNumber);
@@ -68,19 +72,46 @@ namespace MyCanteenAPI.Controllers
         public IActionResult GetbyStudentId(int studentId)
         {
             Result result = new Result();
-            var orders = _dbContext.Orders.Where<Order>(o => o.StudentId == studentId).ToList<Order>();
+            List<OrderVM> ordersVM = new List<OrderVM>();
+            var orders = _dbContext.Orders.Where<Order>(o => o.StudentId == studentId)
+                .Include(item => item.OrderItems)
+                .ToList<Order>();
 
-            if(orders != null)
+            //var orders = from o in _dbContext.Orders join 
+            //             f in _dbContext.OrderItems
+
+
+            if (orders != null)
             {
                 result.IsSuccess = true;
-                result.Data = orders;
-                result.Message = string.Format("{0} orders found for", orders.Count);
+               // result.Data = orders;
+                result.Message = string.Format("{0} orders found", orders.Count);
+
+                foreach (var item in orders)
+                {
+                    OrderVM ord = new OrderVM();
+                    ord.status = "Confirmed";
+                    ord.orderNumber = item.OrderNumber;
+                    ord.orderCost = item.Total.ToString();
+                    if(item.OrderItems != null)
+                    {
+                        foreach(var orderItem in item.OrderItems)
+                        {
+                            string itemName = _dbContext.FoodItems.Where(f => f.Id == orderItem.FoodItemId).First().ItemName;
+                            ord.foodQuantities.Add(new FoodQuantityVM() { foodItemName = itemName, foodItemId = orderItem.FoodItemId   ,Qty = orderItem.Qty.Value });
+                        }
+                    }
+
+                    ordersVM.Add(ord);
+                }
+
+                result.Data = ordersVM;
 
             }
 
-            string json = JsonConvert.SerializeObject(result);
+          //  string json = JsonConvert.SerializeObject(result);
             Request.ContentType = "application/json";
-            return Ok(json);
+            return Ok(result);
 
         }
     }

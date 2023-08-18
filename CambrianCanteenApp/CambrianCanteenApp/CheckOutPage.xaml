@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CambrianCanteenApp.CheckOutPage"
+             xmlns:local ="clr-namespace:CambrianCanteenApp.ViewModels"
+             Title="CheckOutPage"
+             BackgroundColor="#c21010">
+    <ScrollView>
+        <CollectionView x:Name="collectionView" BackgroundColor="#c21010" ItemsLayout="VerticalList" ItemsSource="{Binding CheckoutCartList}" EmptyView="No items to checkout, Start Shopping!">
+            <CollectionView.Header>
+                <VerticalStackLayout BackgroundColor="#c21010" Padding="5">
+                    <Label Text="Checkout" TextColor="WhiteSmoke" FontSize="Large" HorizontalOptions="Center" FontAttributes="Bold"></Label>
+                </VerticalStackLayout>
+            </CollectionView.Header>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="10" BorderColor="WhiteSmoke">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                               
+                            </Grid.ColumnDefinitions>
+                            <HorizontalStackLayout Grid.Column="0" Grid.Row="0" Padding="5" VerticalOptions="Start">
+                                <Label Text="{Binding FoodItemText, StringFormat='{0} => '}" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Start" Padding="2"/>
+                                <Label Text="{Binding TotalPriceItem, StringFormat=' {0:C2}'}" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="End" Padding="2"/>
+
+                            </HorizontalStackLayout>
+                            <!--<Line X1="200"></Line>-->
+                         
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.Footer>
+                <VerticalStackLayout>
+                    <HorizontalStackLayout Padding="5" BackgroundColor="WhiteSmoke" HorizontalOptions="CenterAndExpand">
+                        <Label Text="Sub Total" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Start" Padding="2" TextColor="Black"/>
+                        <Label Text="{Binding SubTotal, StringFormat=': {0:C2}'}" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="End" Padding="2" TextColor="Black"/>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Padding="5" BackgroundColor="WhiteSmoke"  HorizontalOptions="CenterAndExpand">
+                        <Label Text="Service Charge" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center" Padding="2" TextColor="Black"/>
+                        <Label Text="{Binding ServiceCharge, StringFormat=': {0:C2}'}" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="End" Padding="2" TextColor="Black"/>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Padding="5" BackgroundColor="WhiteSmoke"  HorizontalOptions="CenterAndExpand">
+                        <Label Text="Applicable Tax" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center" Padding="2" TextColor="Black"/>
+                        <Label Text="{Binding TaxAmount, StringFormat=': {0:C2}'}" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="End" Padding="2" TextColor="Black"/>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Padding="5" BackgroundColor="WhiteSmoke"  HorizontalOptions="CenterAndExpand">
+                        <Label Text="Total Amount" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center" Padding="2" TextColor="Black"/>
+                        <Label Text="{Binding TotalOrderValue, StringFormat=': {0:C2}'}" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="End" Padding="2" TextColor="Black"/>
+                    </HorizontalStackLayout>
+                    <StackLayout BackgroundColor="Black" Padding="5" >
+                        <Button Text="Confirm and Place Order" BackgroundColor="Green" TextColor="WhiteSmoke" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" Command="{Binding PlaceOrderCommand}"/>
+                    </StackLayout>
+                </VerticalStackLayout>
+            </CollectionView.Footer>
+        </CollectionView>
+    </ScrollView>
+</ContentPage>
